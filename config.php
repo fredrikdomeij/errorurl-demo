@@ -1,5 +1,7 @@
 <?php
 
+date_default_timezone_set("Europe/Stockholm");
+
 $site_name = "errorURL demo site";
 
 $baseurl = $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_NAME'] . (($_SERVER['SERVER_PORT'] == "80" || $_SERVER['SERVER_PORT'] == "443") ? "" : ":${_SERVER['SERVER_PORT']}") . preg_replace('/\/[^\/]*$/', "", $_SERVER['REQUEST_URI']);
