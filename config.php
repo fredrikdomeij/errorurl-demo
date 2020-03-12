@@ -5,24 +5,28 @@ $site_name = "errorURL demo site";
 $baseurl = $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_NAME'] . (($_SERVER['SERVER_PORT'] == "80" || $_SERVER['SERVER_PORT'] == "443") ? "" : ":${_SERVER['SERVER_PORT']}") . preg_replace('/\/[^\/]*$/', "", $_SERVER['REQUEST_URI']);
 $baseurl_root = preg_replace('/^(https?:\/\/[^\/]*).*/', '$1', $baseurl);
 
+//																     |
 $errorurl_codes = array(
 	'DEFINITIONS' => array(
 		'status' => "definitions only, not reviewed",
-		'ERRORURL_INFO' => "This information is sent to the IdP from the service using the ERRORURL_INFO parameter to the errorURL",
+		'ERRORURL_INFO' => "This is sent to the IdP from the service using the ERRORURL_INFO parameter to the errorURL",
 		'SP_ERROR_CAUSE' => "
-			The generic error detected in the application, possible causes and likely solutions (only for the errorURL test site).
+			The generic error detected in the application, possible causes and likely solutions (only for the errorURL
+			test site).
 			",
 		'SP_ERROR_HEADER' => "
 			Header of error message displayed to the user at the application
 			",
 		'SP_ERROR_BODY' => "
-			<p>Application- and error-specific information for the user in the application and suggestions on how to resolved the issue, excluding the <a href=\"ERRORURL\">errurUrl link</a>.
+			<p>Application- and error-specific information for the user in the application and suggestions on how to
+			resolved the issue, excluding the <a href=\"ERRORURL\">errurUrl link</a>.
 			",
 		'IDP_ERROR_HEADER' => "
 			Header of error message displayed to the user at the IdP (defined by the proposal?)
 			",
 		'IDP_ERROR_BODY' => "
-			<p>Genereric error-specific information for the user at the IdP errorURL page and suggestions on how to resolved the issue.
+			<p>Genereric error-specific information for the user at the IdP errorURL page and suggestions on how to
+			resolved the issue.
 			",
 		),
 
