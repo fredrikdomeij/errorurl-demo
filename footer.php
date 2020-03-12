@@ -12,11 +12,10 @@ foreach (array($_SERVER['SCRIPT_FILENAME'], "config.php", "header.php", "footer.
 	echo "</div>";
 	echo "</div>";
 }
+echo "</div>";
+echo "</div>";
 
 ?>
-</div>
-</div>
-</div>
 </div>
 </body>
 </html>
