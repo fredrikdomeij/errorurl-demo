@@ -2,17 +2,18 @@
 
 require("config.php");
 
-$errorurl_code = safe_get('errorurl_code');
+$example_error = safe_get('example_error');
 
-$title = "Application error: $errorurl_code";
+$title = $example_errors[$example_error]['ERRORURL_CODE'];
 require("header.php");
 
 $errorurl_from_metadata = "$baseurl/idp-errorurl.php?code=ERRORURL_CODE&ts=ERRORURL_TS&rp=ERRORURL_RP&tid=ERRORURL_TID&info=ERRORURL_INFO";
 
+$errorurl_code = $example_errors[$example_error]['ERRORURL_CODE'];
 $errorurl_ts   = date("c");
 $errorurl_rp   = "$baseurl_root/shibboleth";
 $errorurl_tid  = uniqid("error-");
-$errorurl_info = $errorurl_codes[$errorurl_code]['ERRORURL_INFO'];
+$errorurl_info = $example_errors[$example_error]['ERRORURL_INFO'];
 
 $errorurl_replaced = preg_replace(array(
 		'/ERRORURL_CODE/',
@@ -43,12 +44,12 @@ $errorurl_replaced_encoded = preg_replace(array(
 	), $errorurl_from_metadata);
 
 echo "<h3>SP with login errors supporting errurUrl handling</h3>";
-echo "<i>" . $errorurl_codes[$errorurl_code]['SP_ERROR_CAUSE'] . "</i>";
+echo "<i>" . $example_errors[$errorurl_code]['SP_ERROR_CAUSE'] . "</i>";
 
 echo "<div class=\"card mt-4\">";
 echo "<div class=\"card-body bg-light\">";
-echo "<h4>" . $errorurl_codes[$errorurl_code]['SP_ERROR_HEADER'] . "</h4>";
-echo preg_replace("/ERRORURL/", $errorurl_replaced_encoded, $errorurl_codes[$errorurl_code]['SP_ERROR_BODY']);
+echo "<h4>" . $example_errors[$errorurl_code]['SP_ERROR_HEADER'] . "</h4>";
+echo preg_replace("/ERRORURL/", $errorurl_replaced_encoded, $example_errors[$example_error]['SP_ERROR_BODY']);
 
 echo "</div>";
 echo "</div>";

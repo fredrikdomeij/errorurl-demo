@@ -8,8 +8,10 @@ $baseurl = $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_NAME'] . (($_SE
 $baseurl_root = preg_replace('/^(https?:\/\/[^\/]*).*/', '$1', $baseurl);
 
 //																     |
-$errorurl_codes = array(
+$example_errors = array(
 	'DEFINITIONS' => array(
+		'ERRORURL_CODE' => 'DEFINITIONS',
+		'label' => 'DEFINITIONS',
 		'status' => "definitions only, not reviewed",
 		'ERRORURL_INFO' => "This is sent to the IdP from the service using the ERRORURL_INFO parameter to the errorURL",
 		'SP_ERROR_CAUSE' => "
@@ -33,6 +35,8 @@ $errorurl_codes = array(
 		),
 
 	'MISSING_ATTRIBUTES' => array(
+		'ERRORURL_CODE' => 'MISSING_ATTRIBUTES',
+		'label' => 'MISSING_ATTRIBUTES',
 		'status' => "not reviewed",
 		'ERRORURL_INFO' => "eduPersonPrincipalName attribute missing",
 		'SP_ERROR_CAUSE' => "
@@ -60,6 +64,8 @@ $errorurl_codes = array(
 		),
 
 	'AUTHENTICATION_FAILURE' => array(
+		'ERRORURL_CODE' => 'AUTHENTICATION_FAILURE',
+		'label' => 'AUTHENTICATION_FAILURE',
 		'status' => "incomplete",
 		'ERRORURL_INFO' => "Authentication failed",
 		'SP_ERROR_CAUSE' => "
@@ -75,8 +81,10 @@ $errorurl_codes = array(
 		),
 
 	'AUTHORIZATION_FAILURE' => array(
+		'ERRORURL_CODE' => 'AUTHORIZATION_FAILURE',
+		'label' => 'AUTHORIZATION_FAILURE (assurance)',
 		'status' => "not reviewed",
-		'ERRORURL_INFO' => "SWAMID AL2 or higher required, got SWAMID AL1",
+		'ERRORURL_INFO' => "RAF medium or higher required, got RAF low",
 		'SP_ERROR_CAUSE' => "
 			The service requires authorization information from the IdP, authorization was missing or too low
 			",
@@ -87,7 +95,7 @@ $errorurl_codes = array(
 			<p>To access this service, a confirmed identity is required.
 			Your identity at your login service appears to be unconfirmed.
 			<p>Please contact IT support or equivalent at your institution for assistance.
-			<p>Technical information: SWAMID Assurance Profile Level 2 or higher required
+			<p>Technical information: REFEDS Assurance Framework (RAF) medium or higher required
 			<p>Your IdP provided <a href=\"ERRORURL\">this link</a> for information on how to resolve this issue.
 			",
 		'IDP_ERROR_HEADER' => "
@@ -101,7 +109,26 @@ $errorurl_codes = array(
 			",
 		),
 
+	// SP_ERROR_CAUSE, IDP_ERROR_HEADER and IDP_ERROR_BODY used from AUTHORIZATION_FAILURE above
+	'AUTHORIZATION_FAILURE2' => array(
+		'ERRORURL_CODE' => 'AUTHORIZATION_FAILURE',
+		'label' => 'AUTHORIZATION_FAILURE (affiliation)',
+		'status' => "not reviewed",
+		'ERRORURL_INFO' => "eduPersonAffiliation student required",
+		'SP_ERROR_HEADER' => "
+			Access denied
+			",
+		'SP_ERROR_BODY' => "
+			<p>To access this service, you must be a student.
+			The login information sent by your login service did not include a student affiliation.
+			<p>Please contact IT support or equivalent at your institution for assistance.
+			<p>Your IdP provided <a href=\"ERRORURL\">this link</a> for information on how to resolve this issue.
+			",
+		),
+
 	'NO_AUTHN_CONTEXT' => array(
+		'ERRORURL_CODE' => 'NO_AUTHN_CONTEXT',
+		'label' => 'NO_AUTHN_CONTEXT',
 		'status' => "incomplete",
 		'ERRORURL_INFO' => "Bad authentications context class",
 		'SP_ERROR_CAUSE' => "
@@ -117,6 +144,8 @@ $errorurl_codes = array(
 		),
 
 	'GENERIC' => array(
+		'ERRORURL_CODE' => 'GENERIC',
+		'label' => 'GENERIC',
 		'status' => "incomplete",
 		'ERRORURL_INFO' => "Some generic error, referer to the IdP support page",
 		'SP_ERROR_CAUSE' => "

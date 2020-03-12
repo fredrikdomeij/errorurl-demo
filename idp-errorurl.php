@@ -12,12 +12,12 @@ $title = "Application error: $errorurl_code";
 require("header.php");
 
 echo "<h2>IdP errorURL help pages</h2>";
-echo "<i>" . $errorurl_codes[$errorurl_code]['SP_ERROR_CAUSE'] . "</i>";
+echo "<i>" . $example_errors[$errorurl_code]['SP_ERROR_CAUSE'] . "</i>";
 
 echo "<div class=\"card mt-4\">";
 echo "<div class=\"card-body bg-light\">";
-echo "<h4>" . $errorurl_codes[$errorurl_code]['IDP_ERROR_HEADER'] . "</h4>";
-echo $errorurl_codes[$errorurl_code]['IDP_ERROR_BODY'];
+echo "<h4>" . $example_errors[$errorurl_code]['IDP_ERROR_HEADER'] . "</h4>";
+echo $example_errors[$errorurl_code]['IDP_ERROR_BODY'];
 
 echo "</div>";
 echo "</div>";

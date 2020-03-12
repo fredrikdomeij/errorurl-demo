@@ -8,8 +8,8 @@ require("header.php");
 echo "<h3>$title</h3>";
 echo "Simulate errors:\n";
 echo "<ul>\n";
-foreach ($errorurl_codes as $errorurl_code => $values) {
-	echo "<li><a href=\"$baseurl/sp-error.php?errorurl_code=$errorurl_code\">$errorurl_code</a> (${values['status']})</li>\n";
+foreach ($example_errors as $example_error => $values) {
+	echo "<li><a href=\"$baseurl/sp-error.php?example_error=$example_error\">${values['label']}</a> (${values['status']})</li>\n";
 }
 
 echo "</ul>";
