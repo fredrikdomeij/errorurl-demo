@@ -23,7 +23,7 @@ $example_errors = array(
 			",
 		'SP_ERROR_BODY' => "
 			<p>Application- and error-specific information for the user in the application and suggestions on how to
-			resolved the issue, excluding the <a href=\"ERRORURL\">errurUrl link</a>.
+			resolved the issue, excluding the <a href=\"ERRORURL\">errorURL link</a>.
 			",
 		'IDP_ERROR_HEADER' => "
 			Header of error message displayed to the user at the IdP (defined by the proposal?)

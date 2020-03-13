@@ -43,7 +43,7 @@ $errorurl_replaced_encoded = preg_replace(array(
 		urlencode($errorurl_info),
 	), $errorurl_from_metadata);
 
-echo "<h3>SP with login errors supporting errurUrl handling</h3>";
+echo "<h3>SP with login errors supporting errorURL handling</h3>";
 echo "<i>" . $example_errors[$errorurl_code]['SP_ERROR_CAUSE'] . "</i>";
 
 echo "<div class=\"card mt-4\">";
