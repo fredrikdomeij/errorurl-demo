@@ -10,7 +10,7 @@ require("header.php");
 $errorurl_from_metadata = "$baseurl/idp-errorurl.php?code=ERRORURL_CODE&ts=ERRORURL_TS&rp=ERRORURL_RP&tid=ERRORURL_TID&ctx=ERRORURL_CTX";
 
 $errorurl_code = $example_errors[$example_error]['ERRORURL_CODE'];
-$errorurl_ts   = date("c");
+$errorurl_ts   = date("U");
 $errorurl_rp   = "$baseurl_root/shibboleth";
 $errorurl_tid  = uniqid("error-");
 $errorurl_ctx = $example_errors[$example_error]['ERRORURL_CTX'];
@@ -37,7 +37,7 @@ $errorurl_replaced_encoded = preg_replace(array(
 		'/ERRORURL_CTX/',
 	), array(
 		$errorurl_code,
-		urlencode($errorurl_ts),
+		$errorurl_ts,
 		urlencode($errorurl_rp),
 		urlencode($errorurl_tid),
 		urlencode($errorurl_ctx),
