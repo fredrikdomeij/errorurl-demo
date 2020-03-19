@@ -7,26 +7,26 @@ $example_error = safe_get('example_error');
 $title = $example_errors[$example_error]['ERRORURL_CODE'];
 require("header.php");
 
-$errorurl_from_metadata = "$baseurl/idp-errorurl.php?code=ERRORURL_CODE&ts=ERRORURL_TS&rp=ERRORURL_RP&tid=ERRORURL_TID&info=ERRORURL_INFO";
+$errorurl_from_metadata = "$baseurl/idp-errorurl.php?code=ERRORURL_CODE&ts=ERRORURL_TS&rp=ERRORURL_RP&tid=ERRORURL_TID&ctx=ERRORURL_CTX";
 
 $errorurl_code = $example_errors[$example_error]['ERRORURL_CODE'];
 $errorurl_ts   = date("c");
 $errorurl_rp   = "$baseurl_root/shibboleth";
 $errorurl_tid  = uniqid("error-");
-$errorurl_info = $example_errors[$example_error]['ERRORURL_INFO'];
+$errorurl_ctx = $example_errors[$example_error]['ERRORURL_CTX'];
 
 $errorurl_replaced = preg_replace(array(
 		'/ERRORURL_CODE/',
 		'/ERRORURL_TS/',
 		'/ERRORURL_RP/',
 		'/ERRORURL_TID/',
-		'/ERRORURL_INFO/',
+		'/ERRORURL_CTX/',
 	), array(
 		$errorurl_code,
 		$errorurl_ts,
 		$errorurl_rp,
 		$errorurl_tid,
-		$errorurl_info,
+		$errorurl_ctx,
 	), $errorurl_from_metadata);
 
 $errorurl_replaced_encoded = preg_replace(array(
@@ -34,13 +34,13 @@ $errorurl_replaced_encoded = preg_replace(array(
 		'/ERRORURL_TS/',
 		'/ERRORURL_RP/',
 		'/ERRORURL_TID/',
-		'/ERRORURL_INFO/',
+		'/ERRORURL_CTX/',
 	), array(
 		$errorurl_code,
 		urlencode($errorurl_ts),
 		urlencode($errorurl_rp),
 		urlencode($errorurl_tid),
-		urlencode($errorurl_info),
+		urlencode($errorurl_ctx),
 	), $errorurl_from_metadata);
 
 echo "<h3>SP with login errors supporting errorURL handling</h3>";

@@ -13,7 +13,7 @@ $example_errors = array(
 		'ERRORURL_CODE' => 'DEFINITIONS',
 		'label' => 'DEFINITIONS',
 		'status' => "definitions only, not reviewed",
-		'ERRORURL_INFO' => "This is sent to the IdP from the service using the ERRORURL_INFO parameter to the errorURL",
+		'ERRORURL_CTX' => "This is sent to the IdP from the service using the ERRORURL_CTX parameter to the errorURL",
 		'SP_ERROR_CAUSE' => "
 			The generic error detected in the application, possible causes and likely solutions (only for the errorURL
 			test site).
@@ -38,7 +38,7 @@ $example_errors = array(
 		'ERRORURL_CODE' => 'MISSING_ATTRIBUTES',
 		'label' => 'MISSING_ATTRIBUTES',
 		'status' => "not reviewed",
-		'ERRORURL_INFO' => "eduPersonPrincipalName attribute missing",
+		'ERRORURL_CTX' => "eduPersonPrincipalName attribute missing",
 		'SP_ERROR_CAUSE' => "
 			The IdP sent too few attributes to the SP,
 			the user must add more attributes at the IdP or make the IdP release more attributes.
@@ -67,7 +67,7 @@ $example_errors = array(
 		'ERRORURL_CODE' => 'AUTHENTICATION_FAILURE',
 		'label' => 'AUTHENTICATION_FAILURE',
 		'status' => "incomplete",
-		'ERRORURL_INFO' => "Authentication failed",
+		'ERRORURL_CTX' => "Authentication failed",
 		'SP_ERROR_CAUSE' => "
 			",
 		'SP_ERROR_HEADER' => "
@@ -84,7 +84,7 @@ $example_errors = array(
 		'ERRORURL_CODE' => 'AUTHORIZATION_FAILURE',
 		'label' => 'AUTHORIZATION_FAILURE (assurance)',
 		'status' => "not reviewed",
-		'ERRORURL_INFO' => "RAF medium or higher required, got RAF low",
+		'ERRORURL_CTX' => "RAF medium or higher required, got RAF low",
 		'SP_ERROR_CAUSE' => "
 			The service requires authorization information from the IdP, authorization was missing or too low
 			",
@@ -114,7 +114,7 @@ $example_errors = array(
 		'ERRORURL_CODE' => 'AUTHORIZATION_FAILURE',
 		'label' => 'AUTHORIZATION_FAILURE (affiliation)',
 		'status' => "not reviewed",
-		'ERRORURL_INFO' => "eduPersonAffiliation student required",
+		'ERRORURL_CTX' => "eduPersonAffiliation student required",
 		'SP_ERROR_HEADER' => "
 			Access denied
 			",
@@ -130,7 +130,7 @@ $example_errors = array(
 		'ERRORURL_CODE' => 'NO_AUTHN_CONTEXT',
 		'label' => 'NO_AUTHN_CONTEXT',
 		'status' => "incomplete",
-		'ERRORURL_INFO' => "Bad authentications context class",
+		'ERRORURL_CTX' => "Bad authentications context class",
 		'SP_ERROR_CAUSE' => "
 			",
 		'SP_ERROR_HEADER' => "
@@ -147,7 +147,7 @@ $example_errors = array(
 		'ERRORURL_CODE' => 'GENERIC',
 		'label' => 'GENERIC',
 		'status' => "incomplete",
-		'ERRORURL_INFO' => "Some generic error, referer to the IdP support page",
+		'ERRORURL_CTX' => "Some generic error, referer to the IdP support page",
 		'SP_ERROR_CAUSE' => "
 			",
 		'SP_ERROR_HEADER' => "
