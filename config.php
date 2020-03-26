@@ -126,9 +126,9 @@ $example_errors = array(
 			",
 		),
 
-	'NO_AUTHN_CONTEXT' => array(
-		'ERRORURL_CODE' => 'NO_AUTHN_CONTEXT',
-		'label' => 'NO_AUTHN_CONTEXT',
+	'AUTHN_CONTEXT' => array(
+		'ERRORURL_CODE' => 'AUTHN_CONTEXT',
+		'label' => 'AUTHN_CONTEXT',
 		'status' => "incomplete",
 		'ERRORURL_CTX' => "Bad authentications context class",
 		'SP_ERROR_CAUSE' => "
