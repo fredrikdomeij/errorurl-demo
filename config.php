@@ -24,7 +24,6 @@ $example_errors = array(
 			<p>Genereric error-specific information for the user at the IdP errorURL page and suggestions on how to
 			resolved the issue. Target audience: user
 			",
-
 		'SP_ERROR_HEADER' => "
 			Header of error message displayed to the user at the application. Target audience: user
 			",
@@ -56,7 +55,6 @@ $example_errors = array(
 			they are (the service may have informed you) and, if possible, a screenshot of the error message
 			including the address bar at the top of the web browser.
 			",
-
 		'SP_ERROR_HEADER' => "
 			Missing user identity
 			",
@@ -74,7 +72,6 @@ $example_errors = array(
 	'MISSING_ATTRIBUTES2' => array(
 		'ERRORURL_CODE' => 'MISSING_ATTRIBUTES',
 		'label' => 'eduPersonAffiliation',
-
 		'SP_ERROR_HEADER' => "
 			Missing affiliation
 			",
@@ -98,7 +95,6 @@ $example_errors = array(
 			",
 		'GENERIC_IDP_ERROR_BODY' => "
 			",
-
 		'SP_ERROR_HEADER' => "
 			",
 		'SP_ERROR_BODY' => "
@@ -122,7 +118,6 @@ $example_errors = array(
 			and, if possible, a screenshot of the error message including the address bar
 			at the top of the web browser.
 			",
-
 		'SP_ERROR_HEADER' => "
 			Access denied
 			",
@@ -141,7 +136,6 @@ $example_errors = array(
 	'AUTHORIZATION_FAILURE2' => array(
 		'ERRORURL_CODE' => 'AUTHORIZATION_FAILURE',
 		'label' => 'affiliation',
-
 		'SP_ERROR_HEADER' => "
 			Access denied
 			",
@@ -154,7 +148,25 @@ $example_errors = array(
 		'ERRORURL_TID' => "error-6b9f541f-fc52-4366-85db-ce90974d1d6b",
 		'ERRORURL_CTX' => "eduPersonAffiliation student required",
 		),
-
+	
+	// GENERIC_ERROR_CAUSE, GENERIC_IDP_ERROR_HEADER and GENERIC_IDP_ERROR_BODY used from AUTHORIZATION_FAILURE above
+	'AUTHORIZATION_FAILURE3' => array(
+		'ERRORURL_CODE' => 'AUTHORIZATION_FAILURE',
+		'label' => 'entitlement',
+		'SP_ERROR_HEADER' => "
+			Access denied
+			",
+		'SP_ERROR_BODY' => "
+			<p>To access this service, your account must have relevant entitlement.
+			The login information sent by your login service did not include the correct entitlement.
+			<p>Please contact IT support or equivalent at your institution for assistance.
+			<p>Your IdP provided <a href=\"ERRORURL\">this link</a> for information on how to resolve this issue.
+			<p>Technical information: eduPersonEntitlement of urn:mace:dir:entitlement:common-lib-terms is missing
+			",
+		'ERRORURL_TID' => "error-6b9f541f-fc52-4366-85db-ce90974d1d6b",
+		'ERRORURL_CTX' => "eduPersonEntitlement of urn:mace:dir:entitlement:common-lib-terms required",
+		),
+	
 	'GENERIC_ERROR' => array(
 		'ERRORURL_CODE' => 'GENERIC_ERROR',
 		'label' => '',
@@ -164,7 +176,6 @@ $example_errors = array(
 			",
 		'GENERIC_IDP_ERROR_BODY' => "
 			",
-
 		'SP_ERROR_HEADER' => "
 			",
 		'SP_ERROR_BODY' => "
