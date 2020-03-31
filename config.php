@@ -59,7 +59,7 @@ $example_errors = array(
 		'SP_ERROR_BODY' => "
 			<p>No suitable identity was sent when you logged in to the application.
 			Please contact IT support or equivalent at your Institution for assistance.
-			<p>Your Institution provided <a href=\"%ERRORURL%\">%ERRORURL_WITHOUT_PARAMS%</a> that may help you resolve this issue.
+			<p>Your Institution provided this link that may help you resolve this issue: <a href=\"%ERRORURL%\">%ERRORURL_WITHOUT_PARAMS%</a>.
 			<p>Technical information: eduPersonPrincipalName (ePPN) missing
 			",
 		'ERRORURL_CTX' => "eduPersonPrincipalName attribute missing",
@@ -76,7 +76,7 @@ $example_errors = array(
 		'SP_ERROR_BODY' => "
 			<p>No affiliation was sent when you logged in to the application.
 			Please contact IT support or equivalent at your Institution for assistance.
-			<p>Your Institution provided <a href=\"%ERRORURL%\">%ERRORURL_WITHOUT_PARAMS%</a> that may help you resolve this issue.
+			<p>Your Institution provided this link that may help you resolve this issue: <a href=\"%ERRORURL%\">%ERRORURL_WITHOUT_PARAMS%</a>.
 			<p>Technical information: eduPersonAffiliation missing
 			",
 		'ERRORURL_CTX' => "eduPersonAffiliation attribute missing",
@@ -122,9 +122,9 @@ $example_errors = array(
 		'SP_ERROR_BODY' => "
 			<p>To access this service, a confirmed identity is required.
 			Your identity at your login service appears to be unconfirmed.
-			<p>Please contact IT support or equivalent at your institution for assistance.
+			<p>Please contact IT support or equivalent at your Institution for assistance.
 			<p>Technical information: REFEDS Assurance Framework (RAF) medium or higher required
-			<p>Your IdP provided <a href=\"%ERRORURL%\">%ERRORURL_WITHOUT_PARAMS%</a> for information on how to resolve this issue.
+			<p>Your Institution provided this link that may help you resolve this issue: <a href=\"%ERRORURL%\">%ERRORURL_WITHOUT_PARAMS%</a>.
 			",
 		'ERRORURL_CTX' => "RAF medium or higher required, got RAF low",
 		),
