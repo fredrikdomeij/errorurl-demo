@@ -14,25 +14,29 @@ $example_errors = array(
 		'ERRORURL_CODE' => 'DEFINITIONS',
 		'label' => '',
 		'GENERIC_ERROR_CAUSE' => "
-			The generic error detected in the application, possible causes and likely solutions (only for the errorURL
-			test site).
+			The generic error detected in the application, possible causes and likely solutions. Target audience: SP and
+			IdP administrators
 			",
 		'GENERIC_IDP_ERROR_HEADER' => "
-			Header of error message displayed to the user at the IdP (defined by the proposal?)
+			Header of error message displayed to the user at the IdP. Target audience: user
 			",
 		'GENERIC_IDP_ERROR_BODY' => "
 			<p>Genereric error-specific information for the user at the IdP errorURL page and suggestions on how to
-			resolved the issue.
+			resolved the issue. Target audience: user
 			",
 
 		'SP_ERROR_HEADER' => "
-			Header of error message displayed to the user at the application
+			Header of error message displayed to the user at the application. Target audience: user
 			",
 		'SP_ERROR_BODY' => "
 			<p>Application- and error-specific information for the user in the application and suggestions on how to
-			resolved the issue, excluding the <a href=\"ERRORURL\">errorURL link</a>.
+			resolved the issue, including the errorURL link: <a href=\"%ERRORURL%\">%ERRORURL_WITHOUT_PARAMS%</a>. Target
+			audience: user
 			",
-		'ERRORURL_CTX' => "This is sent to the IdP from the service using the ERRORURL_CTX parameter to the errorURL",
+		'ERRORURL_TID' => "This is sent to the IdP from the service using the ERRORURL_TID parameter to the errorURL. Target
+		audience: SP administrators (via IdP administrators)",
+		'ERRORURL_CTX' => "This is sent to the IdP from the service using the ERRORURL_CTX parameter to the errorURL. Target
+		audience: IdP administrators",
 		),
 
 	'MISSING_ATTRIBUTES' => array(
@@ -62,6 +66,7 @@ $example_errors = array(
 			<p>Your Institution provided this link that may help you resolve this issue: <a href=\"%ERRORURL%\">%ERRORURL_WITHOUT_PARAMS%</a>.
 			<p>Technical information: eduPersonPrincipalName (ePPN) missing
 			",
+		'ERRORURL_TID' => "error-6b9f541f-fc52-4366-85db-ce90974d1d6b",
 		'ERRORURL_CTX' => "eduPersonPrincipalName attribute missing",
 		),
 
@@ -79,6 +84,7 @@ $example_errors = array(
 			<p>Your Institution provided this link that may help you resolve this issue: <a href=\"%ERRORURL%\">%ERRORURL_WITHOUT_PARAMS%</a>.
 			<p>Technical information: eduPersonAffiliation missing
 			",
+		'ERRORURL_TID' => "error-6b9f541f-fc52-4366-85db-ce90974d1d6b",
 		'ERRORURL_CTX' => "eduPersonAffiliation attribute missing",
 		),
 
@@ -97,6 +103,7 @@ $example_errors = array(
 			",
 		'SP_ERROR_BODY' => "
 			",
+		'ERRORURL_TID' => "error-6b9f541f-fc52-4366-85db-ce90974d1d6b",
 		'ERRORURL_CTX' => "Authentication failed",
 		),
 
@@ -126,6 +133,7 @@ $example_errors = array(
 			<p>Technical information: REFEDS Assurance Framework (RAF) medium or higher required
 			<p>Your Institution provided this link that may help you resolve this issue: <a href=\"%ERRORURL%\">%ERRORURL_WITHOUT_PARAMS%</a>.
 			",
+		'ERRORURL_TID' => "error-6b9f541f-fc52-4366-85db-ce90974d1d6b",
 		'ERRORURL_CTX' => "RAF medium or higher required, got RAF low",
 		),
 
@@ -143,6 +151,7 @@ $example_errors = array(
 			<p>Please contact IT support or equivalent at your institution for assistance.
 			<p>Your IdP provided <a href=\"ERRORURL\">this link</a> for information on how to resolve this issue.
 			",
+		'ERRORURL_TID' => "error-6b9f541f-fc52-4366-85db-ce90974d1d6b",
 		'ERRORURL_CTX' => "eduPersonAffiliation student required",
 		),
 
@@ -160,6 +169,7 @@ $example_errors = array(
 			",
 		'SP_ERROR_BODY' => "
 			",
+		'ERRORURL_TID' => "error-6b9f541f-fc52-4366-85db-ce90974d1d6b",
 		'ERRORURL_CTX' => "Some generic error, referer to the IdP support page",
 		),
 

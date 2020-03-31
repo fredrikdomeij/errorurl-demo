@@ -12,7 +12,7 @@ $errorurl_from_metadata = "$baseurl/idp-errorurl.php?code=ERRORURL_CODE&ts=ERROR
 $errorurl_code = $example_errors[$example_error]['ERRORURL_CODE'];
 $errorurl_ts   = date("U");
 $errorurl_rp   = "$baseurl_root/shibboleth";
-$errorurl_tid  = uniqid("error-");
+$errorurl_tid = $example_errors[$example_error]['ERRORURL_TID'];
 $errorurl_ctx = $example_errors[$example_error]['ERRORURL_CTX'];
 
 $errorurl_replaced = preg_replace(array(
