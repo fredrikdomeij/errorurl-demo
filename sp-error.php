@@ -43,13 +43,22 @@ $errorurl_replaced_encoded = preg_replace(array(
 		urlencode($errorurl_ctx),
 	), $errorurl_from_metadata);
 
+$errorurl_replaced_encoded_without_params = preg_replace("/^([^?]*).*/", "\$1", $errorurl_replaced_encoded);
+
 echo "<h3>SP with login errors supporting errorURL handling</h3>";
-echo "<i>" . $example_errors[$errorurl_code]['SP_ERROR_CAUSE'] . "</i>";
+echo "<i>" . $example_errors[$errorurl_code]['GENERIC_ERROR_CAUSE'] . "</i>";
 
 echo "<div class=\"card mt-4\">";
 echo "<div class=\"card-body bg-light\">";
-echo "<h4>" . $example_errors[$errorurl_code]['SP_ERROR_HEADER'] . "</h4>";
-echo preg_replace("/ERRORURL/", $errorurl_replaced_encoded, $example_errors[$example_error]['SP_ERROR_BODY']);
+echo "<img class=\"mb-4\" src=\"sphere-application.png\">";
+echo "<h4>" . $example_errors[$example_error]['SP_ERROR_HEADER'] . "</h4>";
+echo preg_replace(array(
+			"/%ERRORURL%/",
+			"/%ERRORURL_WITHOUT_PARAMS%/",
+		), array(
+			$errorurl_replaced_encoded,
+			$errorurl_replaced_encoded_without_params,
+		), $example_errors[$example_error]['SP_ERROR_BODY']);
 
 echo "</div>";
 echo "</div>";

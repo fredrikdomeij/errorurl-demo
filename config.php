@@ -7,17 +7,24 @@ $site_name = "errorURL demo site";
 $baseurl = $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_NAME'] . (($_SERVER['SERVER_PORT'] == "80" || $_SERVER['SERVER_PORT'] == "443") ? "" : ":${_SERVER['SERVER_PORT']}") . preg_replace('/\/[^\/]*$/', "", $_SERVER['REQUEST_URI']);
 $baseurl_root = preg_replace('/^(https?:\/\/[^\/]*).*/', '$1', $baseurl);
 
-//																     |
+// Max width to make code readable at demo site
+//                                                                                                                                   |
 $example_errors = array(
 	'DEFINITIONS' => array(
 		'ERRORURL_CODE' => 'DEFINITIONS',
-		'label' => 'DEFINITIONS',
-		'status' => "definitions only, not reviewed",
-		'ERRORURL_CTX' => "This is sent to the IdP from the service using the ERRORURL_CTX parameter to the errorURL",
-		'SP_ERROR_CAUSE' => "
+		'label' => '',
+		'GENERIC_ERROR_CAUSE' => "
 			The generic error detected in the application, possible causes and likely solutions (only for the errorURL
 			test site).
 			",
+		'GENERIC_IDP_ERROR_HEADER' => "
+			Header of error message displayed to the user at the IdP (defined by the proposal?)
+			",
+		'GENERIC_IDP_ERROR_BODY' => "
+			<p>Genereric error-specific information for the user at the IdP errorURL page and suggestions on how to
+			resolved the issue.
+			",
+
 		'SP_ERROR_HEADER' => "
 			Header of error message displayed to the user at the application
 			",
@@ -25,69 +32,90 @@ $example_errors = array(
 			<p>Application- and error-specific information for the user in the application and suggestions on how to
 			resolved the issue, excluding the <a href=\"ERRORURL\">errorURL link</a>.
 			",
-		'IDP_ERROR_HEADER' => "
-			Header of error message displayed to the user at the IdP (defined by the proposal?)
-			",
-		'IDP_ERROR_BODY' => "
-			<p>Genereric error-specific information for the user at the IdP errorURL page and suggestions on how to
-			resolved the issue.
-			",
+		'ERRORURL_CTX' => "This is sent to the IdP from the service using the ERRORURL_CTX parameter to the errorURL",
 		),
 
 	'MISSING_ATTRIBUTES' => array(
 		'ERRORURL_CODE' => 'MISSING_ATTRIBUTES',
-		'label' => 'MISSING_ATTRIBUTES',
-		'status' => "not reviewed",
-		'ERRORURL_CTX' => "eduPersonPrincipalName attribute missing",
-		'SP_ERROR_CAUSE' => "
-			The IdP sent too few attributes to the SP,
-			the user must add more attributes at the IdP or make the IdP release more attributes.
+		'label' => 'eduPersonPrincipalName',
+		'GENERIC_ERROR_CAUSE' => "
+			The SP did not receive one or more attributes or values it requires. The SP is obviously unaware of the reason for this.
+			The user may have to add more attributes at the IdP (e.g. date of birth, ORCID) or request that the IdP releases more attributes (e.g. using attribute filters, entity categories, consent).
 			",
-		'SP_ERROR_HEADER' => "
-			Your identity provider did not send an identity
-			",
-		'SP_ERROR_BODY' => "
-			<p>No identity was sent when you logged in to the application.
-			Please contact IT support or equivalent at your institution for assistance.
-			<p>Technical information: eduPersonPrincipalName (eppn) missing
-			<p>Your IdP provided <a href=\"ERRORURL\">this link</a> for information on how to resolve this issue.
-			",
-		'IDP_ERROR_HEADER' => "
+		'GENERIC_IDP_ERROR_HEADER' => "
 			Missing attributes
 			",
-		'IDP_ERROR_BODY' => "
+		'GENERIC_IDP_ERROR_BODY' => "
+			<p>The service that you tried to access did not get all required attributes.
 			<p>Please contact servicedesk at <a href=\"$baseurl_root/support\">$baseurl_root/support</a>
-			and include the name of the service you tried to login to, any attributes if you know what
-			is missing and, if possible, a screenshot of the error message including the address bar
-			at the top of the web browser.
+			and include the name of the service you tried to access, any attributes if you know what
+			they are (the service may have informed you) and, if possible, a screenshot of the error message
+			including the address bar at the top of the web browser.
 			",
+
+		'SP_ERROR_HEADER' => "
+			Missing user identity
+			",
+		'SP_ERROR_BODY' => "
+			<p>No suitable identity was sent when you logged in to the application.
+			Please contact IT support or equivalent at your Institution for assistance.
+			<p>Your Institution provided <a href=\"%ERRORURL%\">%ERRORURL_WITHOUT_PARAMS%</a> that may help you resolve this issue.
+			<p>Technical information: eduPersonPrincipalName (ePPN) missing
+			",
+		'ERRORURL_CTX' => "eduPersonPrincipalName attribute missing",
 		),
+
+	// GENERIC_ERROR_CAUSE, GENERIC_IDP_ERROR_HEADER and GENERIC_IDP_ERROR_BODY used from AUTHORIZATION_FAILURE above
+	'MISSING_ATTRIBUTES2' => array(
+		'ERRORURL_CODE' => 'MISSING_ATTRIBUTES',
+		'label' => 'eduPersonAffiliation',
+
+		'SP_ERROR_HEADER' => "
+			Missing affiliation
+			",
+		'SP_ERROR_BODY' => "
+			<p>No affiliation was sent when you logged in to the application.
+			Please contact IT support or equivalent at your Institution for assistance.
+			<p>Your Institution provided <a href=\"%ERRORURL%\">%ERRORURL_WITHOUT_PARAMS%</a> that may help you resolve this issue.
+			<p>Technical information: eduPersonAffiliation missing
+			",
+		'ERRORURL_CTX' => "eduPersonAffiliation attribute missing",
+		),
+
 
 	'AUTHENTICATION_FAILURE' => array(
 		'ERRORURL_CODE' => 'AUTHENTICATION_FAILURE',
-		'label' => 'AUTHENTICATION_FAILURE',
-		'status' => "incomplete",
-		'ERRORURL_CTX' => "Authentication failed",
-		'SP_ERROR_CAUSE' => "
+		'label' => '',
+		'GENERIC_ERROR_CAUSE' => "
 			",
+		'GENERIC_IDP_ERROR_HEADER' => "
+			",
+		'GENERIC_IDP_ERROR_BODY' => "
+			",
+
 		'SP_ERROR_HEADER' => "
 			",
 		'SP_ERROR_BODY' => "
 			",
-		'IDP_ERROR_HEADER' => "
-			",
-		'IDP_ERROR_BODY' => "
-			",
+		'ERRORURL_CTX' => "Authentication failed",
 		),
 
 	'AUTHORIZATION_FAILURE' => array(
 		'ERRORURL_CODE' => 'AUTHORIZATION_FAILURE',
-		'label' => 'AUTHORIZATION_FAILURE (assurance)',
-		'status' => "not reviewed",
-		'ERRORURL_CTX' => "RAF medium or higher required, got RAF low",
-		'SP_ERROR_CAUSE' => "
+		'label' => 'assurance',
+		'GENERIC_ERROR_CAUSE' => "
 			The service requires authorization information from the IdP, authorization was missing or too low
 			",
+		'GENERIC_IDP_ERROR_HEADER' => "
+			Authorization failure
+			",
+		'GENERIC_IDP_ERROR_BODY' => "
+			<p>Please contact servicedesk at <a href=\"$baseurl_root/support\">$baseurl_root/support</a>
+			and include the name of the service you tried to login to, any authorization that is known missing
+			and, if possible, a screenshot of the error message including the address bar
+			at the top of the web browser.
+			",
+
 		'SP_ERROR_HEADER' => "
 			Access denied
 			",
@@ -96,25 +124,16 @@ $example_errors = array(
 			Your identity at your login service appears to be unconfirmed.
 			<p>Please contact IT support or equivalent at your institution for assistance.
 			<p>Technical information: REFEDS Assurance Framework (RAF) medium or higher required
-			<p>Your IdP provided <a href=\"ERRORURL\">this link</a> for information on how to resolve this issue.
+			<p>Your IdP provided <a href=\"%ERRORURL%\">%ERRORURL_WITHOUT_PARAMS%</a> for information on how to resolve this issue.
 			",
-		'IDP_ERROR_HEADER' => "
-			Authorization failure
-			",
-		'IDP_ERROR_BODY' => "
-			<p>Please contact servicedesk at <a href=\"$baseurl_root/support\">$baseurl_root/support</a>
-			and include the name of the service you tried to login to, any authorization that is known missing
-			and, if possible, a screenshot of the error message including the address bar
-			at the top of the web browser.
-			",
+		'ERRORURL_CTX' => "RAF medium or higher required, got RAF low",
 		),
 
-	// SP_ERROR_CAUSE, IDP_ERROR_HEADER and IDP_ERROR_BODY used from AUTHORIZATION_FAILURE above
+	// GENERIC_ERROR_CAUSE, GENERIC_IDP_ERROR_HEADER and GENERIC_IDP_ERROR_BODY used from AUTHORIZATION_FAILURE above
 	'AUTHORIZATION_FAILURE2' => array(
 		'ERRORURL_CODE' => 'AUTHORIZATION_FAILURE',
-		'label' => 'AUTHORIZATION_FAILURE (affiliation)',
-		'status' => "not reviewed",
-		'ERRORURL_CTX' => "eduPersonAffiliation student required",
+		'label' => 'affiliation',
+
 		'SP_ERROR_HEADER' => "
 			Access denied
 			",
@@ -124,40 +143,24 @@ $example_errors = array(
 			<p>Please contact IT support or equivalent at your institution for assistance.
 			<p>Your IdP provided <a href=\"ERRORURL\">this link</a> for information on how to resolve this issue.
 			",
+		'ERRORURL_CTX' => "eduPersonAffiliation student required",
 		),
 
-	'AUTHN_CONTEXT' => array(
-		'ERRORURL_CODE' => 'AUTHN_CONTEXT',
-		'label' => 'AUTHN_CONTEXT',
-		'status' => "incomplete",
-		'ERRORURL_CTX' => "Bad authentications context class",
-		'SP_ERROR_CAUSE' => "
+	'GENERIC_ERROR' => array(
+		'ERRORURL_CODE' => 'GENERIC_ERROR',
+		'label' => '',
+		'GENERIC_ERROR_CAUSE' => "
 			",
+		'GENERIC_IDP_ERROR_HEADER' => "
+			",
+		'GENERIC_IDP_ERROR_BODY' => "
+			",
+
 		'SP_ERROR_HEADER' => "
 			",
 		'SP_ERROR_BODY' => "
 			",
-		'IDP_ERROR_HEADER' => "
-			",
-		'IDP_ERROR_BODY' => "
-			",
-		),
-
-	'GENERIC' => array(
-		'ERRORURL_CODE' => 'GENERIC',
-		'label' => 'GENERIC',
-		'status' => "incomplete",
 		'ERRORURL_CTX' => "Some generic error, referer to the IdP support page",
-		'SP_ERROR_CAUSE' => "
-			",
-		'SP_ERROR_HEADER' => "
-			",
-		'SP_ERROR_BODY' => "
-			",
-		'IDP_ERROR_HEADER' => "
-			",
-		'IDP_ERROR_BODY' => "
-			",
 		),
 
 	);
