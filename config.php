@@ -78,6 +78,25 @@ $example_errors = array(
 		'ERRORURL_CODE' => 'MISSING_ATTRIBUTES',
 
 		# MISSING_ATTRIBUTES (eduPersonScopedAffiliation) example
+		'label' => 'eduPersonAssurance',
+		'SP_ERROR_HEADER' => "
+			Missing assurance
+			",
+		'SP_ERROR_BODY' => "
+			<p>This application requires an institutional account assurance value for access, however no such value was received from your Institution during login.
+			Please contact IT support or equivalent at your Institution for assistance.
+			<p>Your Institution provided this link that may help you resolve this issue: <a href=\"%ERRORURL%\">%ERRORURL_WITHOUT_PARAMS%</a>.
+			<p>Technical information: eduPersonAssurance missing
+			",
+		'ERRORURL_TID' => "error-6b9f541f-fc52-4366-85db-ce90974d1d6b",
+		'ERRORURL_CTX' => "eduPersonAssurance attribute missing, please release or implement CoCo entity category",
+		),
+
+	// GENERIC_ERROR_CAUSE, GENERIC_IDP_ERROR_HEADER and GENERIC_IDP_ERROR_BODY used from AUTHORIZATION_FAILURE above
+	'MISSING_ATTRIBUTES3' => array(
+		'ERRORURL_CODE' => 'MISSING_ATTRIBUTES',
+
+		# MISSING_ATTRIBUTES (eduPersonScopedAffiliation) example
 		'label' => 'eduPersonScopedAffiliation',
 		'SP_ERROR_HEADER' => "
 			Missing affiliation
@@ -93,7 +112,7 @@ $example_errors = array(
 		),
 
 	// GENERIC_ERROR_CAUSE, GENERIC_IDP_ERROR_HEADER and GENERIC_IDP_ERROR_BODY used from AUTHORIZATION_FAILURE above
-	'MISSING_ATTRIBUTES3' => array(
+	'MISSING_ATTRIBUTES4' => array(
 		'ERRORURL_CODE' => 'MISSING_ATTRIBUTES',
 
 		# MISSING_ATTRIBUTES (ORCID) example
