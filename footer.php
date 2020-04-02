@@ -1,6 +1,7 @@
 <?php
 
 echo "<div class=\"card mt-4\">";
+echo "<i>Source code of this errorURL demo site</i><br>";
 echo "<div class=\"card-body bg-light\">";
 foreach (array($_SERVER['SCRIPT_FILENAME'], "config.php", "header.php", "footer.php") as $value) {
 	$value_basename = basename($value);

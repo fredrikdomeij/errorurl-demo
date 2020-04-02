@@ -15,6 +15,7 @@ echo "<h2>IdP errorURL help pages</h2>";
 echo "<i>" . $example_errors[$errorurl_code]['GENERIC_ERROR_CAUSE'] . "</i>";
 
 echo "<div class=\"card mt-4\">";
+echo "<i>Information to the end user at the errorURL site</i><br>";
 echo "<div class=\"card-body bg-light\">";
 echo "<img class=\"mb-4\" src=\"blue-star-university.png\">";
 echo "<h4>" . $example_errors[$errorurl_code]['GENERIC_IDP_ERROR_HEADER'] . "</h4>";
@@ -24,6 +25,7 @@ echo "</div>";
 echo "</div>";
 
 echo "<div class=\"card mt-4\">";
+echo "<i>Optional parameters included in the errorURL</i><br>";
 echo "<div class=\"card-body bg-light\">";
 echo "<pre>";
 echo "ts:  $errorurl_ts\n";

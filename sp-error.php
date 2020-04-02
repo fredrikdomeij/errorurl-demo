@@ -49,6 +49,7 @@ echo "<h3>SP with login errors supporting errorURL handling</h3>";
 echo "<i>" . $example_errors[$errorurl_code]['GENERIC_ERROR_CAUSE'] . "</i>";
 
 echo "<div class=\"card mt-4\">";
+echo "<i>Information to the end user at the service</i><br>";
 echo "<div class=\"card-body bg-light\">";
 echo "<img class=\"mb-4\" src=\"sphere-application.png\">";
 echo "<h4>" . $example_errors[$example_error]['SP_ERROR_HEADER'] . "</h4>";
@@ -64,6 +65,7 @@ echo "</div>";
 echo "</div>";
 
 echo "<div class=\"card mt-4\">";
+echo "<i>Construction of the errorURL with replaced placeholders</i><br>";
 echo "  <div class=\"card-body bg-light\">";
 
 echo "<pre>";
