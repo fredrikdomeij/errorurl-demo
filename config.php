@@ -72,7 +72,7 @@ $example_errors = array(
 			<p>Technical information: REFEDS Research and Scholarship (R&S) Entity Category support missing
 			",
 		'ERRORURL_TID' => "error-6b9f541f-fc52-4366-85db-ce90974d1d6b",
-		'ERRORURL_CTX' => "eduPersonPrincipalName, mail and displayName (or givenName and surname) are missing, please release or implement CoCo or R&S entity categories",
+		'ERRORURL_CTX' => "eduPersonPrincipalName, mail and displayName (or givenName and sn) are missing, please release or implement CoCo or R&S entity categories",
 		),
 
 	// GENERIC_ERROR_CAUSE, GENERIC_IDP_ERROR_HEADER and GENERIC_IDP_ERROR_BODY used from AUTHORIZATION_FAILURE above
