@@ -72,7 +72,7 @@ $example_errors = array(
 			<p>Technical information: REFEDS Research and Scholarship (R&S) Entity Category support missing
 			",
 		'ERRORURL_TID' => "error-6b9f541f-fc52-4366-85db-ce90974d1d6b",
-		'ERRORURL_CTX' => "eduPersonPrincipalName, mail and displayName (or givenName and sn) are missing, please release or implement CoCo or R&S entity categories",
+		'ERRORURL_CTX' => "http://refeds.org/category/research-and-scholarship",
 		),
 
 	// GENERIC_ERROR_CAUSE, GENERIC_IDP_ERROR_HEADER and GENERIC_IDP_ERROR_BODY used from AUTHORIZATION_FAILURE above
@@ -91,7 +91,7 @@ $example_errors = array(
 			<p>Technical information: eduPersonScopedAffiliation missing
 			",
 		'ERRORURL_TID' => "error-6b9f541f-fc52-4366-85db-ce90974d1d6b",
-		'ERRORURL_CTX' => "eduPersonScopedAffiliation attribute missing, please release or implement CoCo or R&S entity categories",
+		'ERRORURL_CTX' => "eduPersonScopedAffiliation http://www.geant.net/uri/dataprotection-code-of-conduct/v1 http://refeds.org/category/research-and-scholarship",
 		),
 
 	// GENERIC_ERROR_CAUSE, GENERIC_IDP_ERROR_HEADER and GENERIC_IDP_ERROR_BODY used from AUTHORIZATION_FAILURE above
@@ -110,7 +110,7 @@ $example_errors = array(
 			<p>Technical information: ORCID missing
 			",
 		'ERRORURL_TID' => "error-6b9f541f-fc52-4366-85db-ce90974d1d6b",
-		'ERRORURL_CTX' => "ORCID attribute missing, please release or implement CoCo entity category",
+		'ERRORURL_CTX' => "eduPersonOrcid http://www.geant.net/uri/dataprotection-code-of-conduct/v1",
 		),
 
 	'AUTHENTICATION_FAILURE' => array(
@@ -225,7 +225,7 @@ $example_errors = array(
 			<p>Technical information: Required eduPersonEntitlement is urn:mace:dir:entitlement:common-lib-terms
 			",
 		'ERRORURL_TID' => "error-6b9f541f-fc52-4366-85db-ce90974d1d6b",
-		'ERRORURL_CTX' => "Required eduPersonEntitlement is urn:mace:dir:entitlement:common-lib-terms",
+		'ERRORURL_CTX' => "Required eduPersonEntitlement of urn:mace:dir:entitlement:common-lib-terms",
 		),
 
 	'GENERIC_ERROR' => array(
