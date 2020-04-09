@@ -21,7 +21,7 @@ $example_errors = array(
 			",
 		'GENERIC_IDP_ERROR_BODY' => "
 			<p>Genereric error-specific information for the user at the IdP errorURL page and suggestions on how to
-			resolved the issue. Target audience: user
+			resolve the issue. Target audience: user
 			",
 
 		# DEFINITIONS example
@@ -31,7 +31,7 @@ $example_errors = array(
 			",
 		'SP_ERROR_BODY' => "
 			<p>Service- and error-specific information for the user in the service and suggestions on how to
-			resolved the issue, including the errorURL link: <a href=\"%ERRORURL%\">%ERRORURL_WITHOUT_PARAMS%</a>. Target
+			resolve the issue, including the errorURL link: <a href=\"%ERRORURL%\">%ERRORURL_WITHOUT_PARAMS%</a>. Target
 			audience: user
 			",
 		'ERRORURL_TID' => "This is sent to the IdP from the service using the ERRORURL_TID parameter to the errorURL. Target
@@ -143,7 +143,7 @@ $example_errors = array(
 		'SP_ERROR_BODY' => "
 			<p>To access this service, Multi-Factor Authentication is required. The requested Multi-Factor Authenticaton
 			failed. It might help to restart your web browser and try again.
-			<p>If you cannot resolved the issue yourself, please contact IT support or equivalent at your Institution for
+			<p>If you cannot resolve the issue yourself, please contact IT support or equivalent at your Institution for
 			assistance.
 			<p>Your Institution provided this link that may help you resolve this issue:
 			<a href=\"%ERRORURL%\">%ERRORURL_WITHOUT_PARAMS%</a>.
