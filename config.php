@@ -40,27 +40,30 @@ $example_errors = array(
 		audience: IdP administrators",
 		),
 
-	'MISSING_ATTRIBUTES' => array(
-		'ERRORURL_CODE' => 'MISSING_ATTRIBUTES',
+	'IDENTIFICATION_FAILURE' => array(
+		'ERRORURL_CODE' => 'IDENTIFICATION_FAILURE',
 		'GENERIC_ERROR_CAUSE' => "
-			The SP did not receive one or more attributes or values it requires. The SP is obviously unaware of the
-			reason for this.
-			The user may have to request that the IdP releases more attributes (e.g. using attribute filters or entity
-			categories) or ensure the values are released via consent.
+			The SP did not receive one or more attributes or values it requires for basic identification and/or
+			personalization purposes. This typically applies to unique identifiers, name, and email address attributes
+			that are common to federated interactions.
+			The SP is most likely unaware of the reason the information was not supplied. The user may have to request
+			that the IdP release more attributes (e.g. using attribute filters, entity categories), or ensure the values
+			are released via his or her own consent.
 			",
 		'GENERIC_IDP_ERROR_HEADER' => "
-			Missing attributes
+			Identification failed
 			",
 		'GENERIC_IDP_ERROR_BODY' => "
-			<p>The service that you tried to access did not get all required attributes.
+			<p>The service that you tried to access did not get all required attributes for identification and/or
+			personalization.
 			<p>Please contact servicedesk at <a href=\"$baseurl_root/support\">$baseurl_root/support</a>
-			and include the name of the service you tried to access, any attributes if you know what
+			and include the name of the service you tried to access, any missing attributes if you know what
 			they are (the service may have informed you) and, if possible, a screenshot of the error message
 			including the address bar at the top of the web browser.
 			",
 
-		# MISSING_ATTRIBUTES (missing R&S) example
-		'label' => 'missing R&amp;S',
+		# IDENTIFICATION_FAILURE (missing R&S) example
+		'label' => 'missing eduPersonPrincipalname',
 		'SP_ERROR_HEADER' => "
 			Missing attributes
 			",
@@ -68,40 +71,19 @@ $example_errors = array(
 		'SP_ERROR_BODY' => "
 			<p>Your Institution did not deliver all required attributes during log in to the service.
 			Please contact IT support or equivalent at your Institution for assistance.
-			<p>Your Institution provided this link that may help you resolve this issue:
+			<p>Your Institution provided this link that may help you to resolve this issue:
 			<a href=\"%ERRORURL%\">%ERRORURL_WITHOUT_PARAMS%</a>.
-			<p>Technical requirements: http://refeds.org/category/research-and-scholarship
+			<p>Technical requirements: eduPersonPrincipalName
 			",
 		'ERRORURL_TID' => "error-6b9f541f-fc52-4366-85db-ce90974d1d6b",
-		'ERRORURL_CTX' => "http://refeds.org/category/research-and-scholarship",
+		'ERRORURL_CTX' => "eduPersonPrincipalName http://www.geant.net/uri/dataprotection-code-of-conduct/v1 http://refeds.org/category/research-and-scholarship",
 		),
 
 	// GENERIC_ERROR_CAUSE, GENERIC_IDP_ERROR_HEADER and GENERIC_IDP_ERROR_BODY used from AUTHORIZATION_FAILURE above
-	'MISSING_ATTRIBUTES2' => array(
-		'ERRORURL_CODE' => 'MISSING_ATTRIBUTES',
+	'IDENTIFICATION_FAILURE2' => array(
+		'ERRORURL_CODE' => 'IDENTIFICATION_FAILURE',
 
-		# MISSING_ATTRIBUTES (eduPersonScopedAffiliation) example
-		'label' => 'eduPersonScopedAffiliation',
-		'SP_ERROR_HEADER' => "
-			Missing affiliation
-			",
-		'SP_ERROR_BODY' => "
-			<p>This service requires an institutional affiliation value for access, however no such value was received
-			from your Institution during login.
-			Please contact IT support or equivalent at your Institution for assistance.
-			<p>Your Institution provided this link that may help you resolve this issue:
-			<a href=\"%ERRORURL%\">%ERRORURL_WITHOUT_PARAMS%</a>.
-			<p>Technical requirements: eduPersonScopedAffiliation
-			",
-		'ERRORURL_TID' => "error-6b9f541f-fc52-4366-85db-ce90974d1d6b",
-		'ERRORURL_CTX' => "eduPersonScopedAffiliation http://www.geant.net/uri/dataprotection-code-of-conduct/v1 http://refeds.org/category/research-and-scholarship",
-		),
-
-	// GENERIC_ERROR_CAUSE, GENERIC_IDP_ERROR_HEADER and GENERIC_IDP_ERROR_BODY used from AUTHORIZATION_FAILURE above
-	'MISSING_ATTRIBUTES3' => array(
-		'ERRORURL_CODE' => 'MISSING_ATTRIBUTES',
-
-		# MISSING_ATTRIBUTES (ORCID) example
+		# IDENTIFICATION_FAILURE (ORCID) example
 		'label' => 'ORCID',
 		'SP_ERROR_HEADER' => "
 			Missing ORCID
@@ -110,7 +92,7 @@ $example_errors = array(
 			<p>This service requires ORCID to identify you, however no ORCID was received from your Institution during
 			login.
 			Please contact IT support or equivalent at your Institution for assistance.
-			<p>Your Institution provided this link that may help you resolve this issue:
+			<p>Your Institution provided this link that may help you to resolve this issue:
 			<a href=\"%ERRORURL%\">%ERRORURL_WITHOUT_PARAMS%</a>.
 			<p>Technical requirements: eduPersonOrcid
 			",
@@ -150,7 +132,7 @@ $example_errors = array(
 			failed. It might help to restart your web browser and try again.
 			<p>If you cannot resolve the issue yourself, please contact IT support or equivalent at your Institution for
 			assistance.
-			<p>Your Institution provided this link that may help you resolve this issue:
+			<p>Your Institution provided this link that may help you to resolve this issue:
 			<a href=\"%ERRORURL%\">%ERRORURL_WITHOUT_PARAMS%</a>.
 			<p>Technical requirements: https://refeds.org/profile/mfa
 			",
@@ -185,7 +167,7 @@ $example_errors = array(
 			<p>To access this service, a confirmed identity is required.
 			Your identity at your Institution appears to require additional confirmation steps.
 			<p>Please contact IT support or equivalent at your Institution for assistance.
-			<p>Your Institution provided this link that may help you resolve this issue:
+			<p>Your Institution provided this link that may help you to resolve this issue:
 			<a href=\"%ERRORURL%\">%ERRORURL_WITHOUT_PARAMS%</a>.
 			<p>Technical requirements: eduPersonAssurance>=https://refeds.org/assurance/IAP/medium
 			",
@@ -206,7 +188,7 @@ $example_errors = array(
 			<p>To access this service, you must be a student.
 			The login information sent by your Institution did not include a student affiliation.
 			<p>Please contact IT support or equivalent at your institution for assistance.
-			<p>Your Institution provided this link that may help you resolve this issue:
+			<p>Your Institution provided this link that may help you to resolve this issue:
 			<a href=\"%ERRORURL%\">%ERRORURL_WITHOUT_PARAMS%</a>.
 			<p>Technical requirements: eduPersonAffiliation=student
 			",
@@ -227,7 +209,7 @@ $example_errors = array(
 			<p>To access this service, your account must have relevant entitlement.
 			The login information sent by your Institution did not include the correct entitlement.
 			<p>Please contact IT support or equivalent at your institution for assistance.
-			<p>Your Institution provided this link that may help you resolve this issue:
+			<p>Your Institution provided this link that may help you to resolve this issue:
 			<a href=\"%ERRORURL%\">%ERRORURL_WITHOUT_PARAMS%</a>.
 			<p>Technical requirements: eduPersonEntitlement=urn:mace:dir:entitlement:common-lib-terms
 			",
@@ -261,7 +243,7 @@ $example_errors = array(
 		'SP_ERROR_BODY' => "
 			<p>An error has occurred
 			<p>Please contact IT support or equivalent at your institution for assistance.
-			<p>Your Institution provided this link that may help you resolve this issue:
+			<p>Your Institution provided this link that may help you to resolve this issue:
 			<a href=\"%ERRORURL%\">%ERRORURL_WITHOUT_PARAMS%</a>.
 			",
 		'ERRORURL_TID' => "error-6b9f541f-fc52-4366-85db-ce90974d1d6b",
