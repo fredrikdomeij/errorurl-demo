@@ -7,20 +7,30 @@
 <title><?= $title ?></title>
 </head>
 <body class="mt-4">
+<?php
+
+if (isset($show_headerlinks) && $show_headerlinks) {
+
+?>
 <div class="container mb-4">
 <?php
 
-if (basename($_SERVER['SCRIPT_NAME']) == "idp-errorurl.php") {
-	$current_step = 3;
-} else if (basename($_SERVER['SCRIPT_NAME']) == "sp-error.php") {
-	$current_step = 2;
-} else {
-	$current_step = 1;
-}
+	if (basename($_SERVER['SCRIPT_NAME']) == "idp-errorurl.php") {
+		$current_step = 3;
+	} else if (basename($_SERVER['SCRIPT_NAME']) == "sp-error.php") {
+		$current_step = 2;
+	} else {
+		$current_step = 1;
+	}
 
 ?>
 	<a href="<?= $baseurl_sp ?>"><span style="<?= ($current_step == 1) ? "font-weight: bold;" : "" ?>">Login page</span></a> -&gt;
 	<span style="<?= ($current_step == 2) ? "font-weight: bold;" : "" ?>">Application error page</span> -&gt;
 	<span style="<?= ($current_step == 3) ? "font-weight: bold;" : "" ?>">Identity Provider errorURL page</span>
 </div>
+<?php
+
+}
+
+?>
 <div class="container">

@@ -5,6 +5,7 @@ require("config.php");
 $example_error = safe_get('example_error');
 
 $title = $example_errors[$example_error]['ERRORURL_CODE'];
+$show_headerlinks = 1;
 require("header.php");
 
 $errorurl_from_metadata = "$baseurl_idp/idp-errorurl.php?code=ERRORURL_CODE&ts=ERRORURL_TS&rp=ERRORURL_RP&tid=ERRORURL_TID&ctx=ERRORURL_CTX";
@@ -108,6 +109,7 @@ echo "    </div>";
 echo "  </div>";
 echo "</div>";
 
+$show_source = 1;
 require("footer.php");
 
 ?>

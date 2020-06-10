@@ -9,6 +9,7 @@ $errorurl_tid  = safe_get('tid');
 $errorurl_ctx  = safe_get('ctx');
 
 $title = "Application error: $errorurl_code";
+$show_headerlinks = 1;
 require("header.php");
 
 echo "<h2>IdP errorURL help pages</h2>";
@@ -36,6 +37,7 @@ echo "</pre>";
 echo "</div>";
 echo "</div>";
 
+$show_source = 1;
 require("footer.php");
 
 ?>

@@ -3,6 +3,7 @@
 require("config.php");
 
 $title = $site_name;
+$show_headerlinks = 1;
 require("header.php");
 
 echo "<h3>$title</h3>";
@@ -13,6 +14,7 @@ foreach ($example_errors as $example_error => $values) {
 }
 
 echo "</ul>";
+$show_source = 1;
 require("footer.php");
 
 ?>
