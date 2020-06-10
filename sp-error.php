@@ -7,11 +7,11 @@ $example_error = safe_get('example_error');
 $title = $example_errors[$example_error]['ERRORURL_CODE'];
 require("header.php");
 
-$errorurl_from_metadata = "$baseurl/idp-errorurl.php?code=ERRORURL_CODE&ts=ERRORURL_TS&rp=ERRORURL_RP&tid=ERRORURL_TID&ctx=ERRORURL_CTX";
+$errorurl_from_metadata = "$baseurl_idp/idp-errorurl.php?code=ERRORURL_CODE&ts=ERRORURL_TS&rp=ERRORURL_RP&tid=ERRORURL_TID&ctx=ERRORURL_CTX";
 
 $errorurl_code = $example_errors[$example_error]['ERRORURL_CODE'];
 $errorurl_ts   = date("U");
-$errorurl_rp   = "$baseurl_root/shibboleth";
+$errorurl_rp   = "$baseurl_sp_root/shibboleth";
 $errorurl_tid = $example_errors[$example_error]['ERRORURL_TID'];
 $errorurl_ctx = $example_errors[$example_error]['ERRORURL_CTX'];
 

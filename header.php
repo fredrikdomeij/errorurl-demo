@@ -19,7 +19,7 @@ if (basename($_SERVER['SCRIPT_NAME']) == "idp-errorurl.php") {
 }
 
 ?>
-	<a href="<?= $baseurl ?>"><span style="<?= ($current_step == 1) ? "font-weight: bold;" : "" ?>">Login page</span></a> -&gt;
+	<a href="<?= $baseurl_sp ?>"><span style="<?= ($current_step == 1) ? "font-weight: bold;" : "" ?>">Login page</span></a> -&gt;
 	<span style="<?= ($current_step == 2) ? "font-weight: bold;" : "" ?>">Application error page</span> -&gt;
 	<span style="<?= ($current_step == 3) ? "font-weight: bold;" : "" ?>">Identity Provider errorURL page</span>
 </div>

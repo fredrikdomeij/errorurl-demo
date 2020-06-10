@@ -7,6 +7,12 @@ $site_name = "errorURL demo site";
 $baseurl = $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_NAME'] . (($_SERVER['SERVER_PORT'] == "80" || $_SERVER['SERVER_PORT'] == "443") ? "" : ":${_SERVER['SERVER_PORT']}") . preg_replace('/\/[^\/]*$/', "", $_SERVER['REQUEST_URI']);
 $baseurl_root = preg_replace('/^(https?:\/\/[^\/]*).*/', '$1', $baseurl);
 
+$baseurl_idp = preg_replace('/errorurl-sp-demo/', 'errorurl-idp-demo', $baseurl);
+$baseurl_idp_root = preg_replace('/errorurl-sp-demo/', 'errorurl-idp-demo', $baseurl_root);
+
+$baseurl_sp = preg_replace('/errorurl-idp-demo/', 'errorurl-sp-demo', $baseurl);
+$baseurl_sp_root = preg_replace('/errorurl-idp-demo/', 'errorurl-sp-demo', $baseurl_root);
+
 // Max width to make code readable at demo site
 //                                                                                                                                   |
 $example_errors = array(
@@ -56,7 +62,7 @@ $example_errors = array(
 		'GENERIC_IDP_ERROR_BODY' => "
 			<p>The service that you tried to access did not get all required attributes for identification and/or
 			personalization.
-			<p>Please contact servicedesk at <a href=\"$baseurl_root/support\">$baseurl_root/support</a>
+			<p>Please contact servicedesk at <a href=\"$baseurl_idp_root/support\">$baseurl_idp_root/support</a>
 			and include the name of the service you tried to access, any missing attributes if you know what
 			they are (the service may have informed you) and, if possible, a screenshot of the error message
 			including the address bar at the top of the web browser.
@@ -118,7 +124,7 @@ $example_errors = array(
 			<p>This may be because it requires additional steps which did not occur during login (such as using a second
 			factor).
 			<p>Please try again. If you cannot resolve the issue yourself, please contact servicedesk at
-			<a href=\"$baseurl_root/support\">$baseurl_root/support</a> and include the name of the service you tried to
+			<a href=\"$baseurl_idp_root/support\">$baseurl_idp_root/support</a> and include the name of the service you tried to
 			access, any error information given by the service and, if possible, a screenshot of the error message
 			including the address bar at the top of the web browser.
 			",
@@ -153,7 +159,7 @@ $example_errors = array(
 		'GENERIC_IDP_ERROR_BODY' => "
 			<p>The service that you tried to access requires privileges that you do not have.
 			<p>If you think you should have access, please contact servicedesk at
-			<a href=\"$baseurl_root/support\">$baseurl_root/support</a> and include the name of the service you tried to
+			<a href=\"$baseurl_idp_root/support\">$baseurl_idp_root/support</a> and include the name of the service you tried to
 			access, any privileges that were noted as missing and, if possible, a screenshot of the error message
 			including the address bar at the top of the web browser.
 			",
@@ -230,7 +236,7 @@ $example_errors = array(
 		'GENERIC_IDP_ERROR_BODY' => "
 			An error occurred when accessing the service
 			<p>If you think you should be able to access the service, please contact servicedesk at
-			<a href=\"$baseurl_root/support\">$baseurl_root/support</a> and include the name of the service you tried to
+			<a href=\"$baseurl_idp_root/support\">$baseurl_idp_root/support</a> and include the name of the service you tried to
 			access, any privileges that were noted as missing and, if possible, a screenshot of the error message
 			including the address bar at the top of the web browser.
 			",
