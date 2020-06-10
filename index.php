@@ -14,6 +14,23 @@ foreach ($example_errors as $example_error => $values) {
 }
 
 echo "</ul>";
+
+echo "Example IdP support pages:";
+echo "<ul>";
+
+foreach ($example_errors as $example_error => $values) {
+	if ($example_error == "DEFINITIONS") {
+		$example_error = "ERRORURL_CODE";
+	}
+	if (preg_match('/[0-9]$/', $example_error)) {
+		continue;
+	}
+
+	echo "<li><a href=\"idp-support-example.php?code=$example_error\">$example_error.html</a> (<a href=\"idp-support-example.php?code=$example_error&source=true\">source</a>)</li>";
+}
+
+echo "</ul>";
+
 $show_source = 1;
 require("footer.php");
 

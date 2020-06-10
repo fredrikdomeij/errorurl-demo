@@ -8,7 +8,9 @@ $baseurl = $_SERVER['REQUEST_SCHEME'] . "://" . $_SERVER['SERVER_NAME'] . (($_SE
 $baseurl_root = preg_replace('/^(https?:\/\/[^\/]*).*/', '$1', $baseurl);
 
 $baseurl_idp = preg_replace('/errorurl-sp-demo/', 'errorurl-idp-demo', $baseurl);
-$baseurl_idp_root = preg_replace('/errorurl-sp-demo/', 'errorurl-idp-demo', $baseurl_root);
+if (!isset($baseurl_idp_root)) {
+	$baseurl_idp_root = preg_replace('/errorurl-sp-demo/', 'errorurl-idp-demo', $baseurl_root);
+}
 
 $baseurl_sp = preg_replace('/errorurl-idp-demo/', 'errorurl-sp-demo', $baseurl);
 $baseurl_sp_root = preg_replace('/errorurl-idp-demo/', 'errorurl-sp-demo', $baseurl_root);
