@@ -17,6 +17,7 @@ if ($code == "ERRORURL_CODE") {
 <title>Login error support</title>
 <body>
 <h1>Login error support</h1>
+Login failed at the service you tried to access. Please see below for possible reasons and actions.
 <?php
 
 foreach ($example_errors as $code => $definition) {
@@ -28,8 +29,8 @@ foreach ($example_errors as $code => $definition) {
 	}
 
 ?>
-	<h2><?= trim($example_errors[$code]['GENERIC_IDP_ERROR_HEADER']) ?></h2>
-	<?= trim(preg_replace('/^[ \t]*/m', '', $example_errors[$code]['GENERIC_IDP_ERROR_BODY'])) ?></a>
+<h2><?= trim($example_errors[$code]['GENERIC_IDP_ERROR_HEADER']) ?></h2>
+<?= trim(preg_replace('/^[ \t]*/m', '', $example_errors[$code]['GENERIC_IDP_ERROR_BODY'])) ?></a>
 <?php
 
 }
