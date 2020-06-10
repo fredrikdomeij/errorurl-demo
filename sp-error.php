@@ -8,7 +8,17 @@ $title = $example_errors[$example_error]['ERRORURL_CODE'];
 $show_headerlinks = 1;
 require("header.php");
 
-$errorurl_from_metadata = "$baseurl_idp/idp-errorurl.php?code=ERRORURL_CODE&ts=ERRORURL_TS&rp=ERRORURL_RP&tid=ERRORURL_TID&ctx=ERRORURL_CTX";
+if (isset($_SERVER['Shib-Identity-Provider'])) {
+	// Has its own errorURL
+	if (isset($_SERVER['Meta-errorURL']) && $_SERVER['Meta-errorURL']) {
+		$errorurl_from_metadata = $_SERVER['Meta-errorURL'];
+	} else {
+		$errorurl_from_metadata = "";
+	}
+} else {
+	// Demo IdP
+	$errorurl_from_metadata = "$baseurl_idp/idp-errorurl.php?code=ERRORURL_CODE&ts=ERRORURL_TS&rp=ERRORURL_RP&tid=ERRORURL_TID&ctx=ERRORURL_CTX";
+}
 
 $errorurl_code = $example_errors[$example_error]['ERRORURL_CODE'];
 $errorurl_ts   = date("U");
@@ -44,7 +54,11 @@ $errorurl_replaced_encoded = preg_replace(array(
 		urlencode($errorurl_ctx),
 	), $errorurl_from_metadata);
 
-$errorurl_replaced_encoded_without_params = preg_replace("/^([^?]*).*/", "\$1", $errorurl_replaced_encoded);
+if ($errorurl_from_metadata) {
+	$errorurl_replaced_encoded_without_params = preg_replace("/^([^?]*).*/", "\$1", $errorurl_replaced_encoded);
+} else {
+	$errorurl_replaced_encoded_without_params = "No errorURL in metadata for ${_SERVER['Shib-Identity-Provider']}";
+}
 
 echo "<h3>SP with login errors supporting errorURL handling</h3>";
 echo "<i>" . $example_errors[$errorurl_code]['GENERIC_ERROR_CAUSE'] . "</i>";

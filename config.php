@@ -234,7 +234,7 @@ $example_errors = array(
 			Access error
 			",
 		'GENERIC_IDP_ERROR_BODY' => "
-			An error occurred when accessing the service
+			<p>An error occurred when accessing the service
 			<p>If you think you should be able to access the service, please contact servicedesk at
 			<a href=\"$baseurl_idp_root/support\">$baseurl_idp_root/support</a> and include the name of the service you tried to
 			access, any privileges that were noted as missing and, if possible, a screenshot of the error message
