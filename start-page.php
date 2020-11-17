@@ -15,7 +15,7 @@ The REFEDS working group notes are available at <a href="https://wiki.refeds.org
 <p>
 The demo site can be accessed using the following methods:
 <ul>
-  <li><a href="demo/">Demo login</a> (using dummy IdP)</li>
+  <li><a href="demo/">Demo login</a> (using dummy IdP from "Blue Star University")</li>
   <li><a href="/Shibboleth.sso/DS/seamless-access?target=/secure/">SeamlessAccess</a></li>
   <li><a href="/Shibboleth.sso/DS/nordu.net?target=/secure/">SWAMID</a></li>
   <li><a href="/Shibboleth.sso/DS/swamid-test?target=/secure/">SWAMID Testing</a></li>
