@@ -64,14 +64,14 @@ $example_errors = array(
 		'GENERIC_IDP_ERROR_BODY' => "
 			<p>The service that you tried to access did not get all required attributes for identification and/or
 			personalization.
-			<p>Please contact IT Service Desk at <a href=\"$baseurl_idp_root/support\">$baseurl_idp_root/support</a>
+			<p>Please contact the IT Service Desk of Blue Star University at <a href=\"$baseurl_idp_root/support\">$baseurl_idp_root/support</a>
 			and include the name of the service you tried to access, any missing attributes if you know what
 			they are (the service may have informed you) and, if possible, a screenshot of the error message
 			at the service including the address bar at the top of the web browser.
 			",
 
 		# IDENTIFICATION_FAILURE (missing R&S) example
-		'label' => 'missing eduPersonPrincipalname',
+		'label' => 'missing eduPersonPrincipalName',
 		'SP_ERROR_HEADER' => "
 			Missing attributes
 			",
@@ -125,7 +125,7 @@ $example_errors = array(
 			<p>The service you tried to access failed during the authentication stage
 			<p>This may be because it requires additional steps which did not occur during login (such as using a second
 			factor).
-			<p>Please try again. If you cannot resolve the issue yourself, please contact IT Service Desk at
+			<p>Please try again. If you cannot resolve the issue yourself, please contact IT Service Desk of Blue Star University at
 			<a href=\"$baseurl_idp_root/support\">$baseurl_idp_root/support</a> and include the name of the service you tried to
 			access, any error information given by the service and, if possible, a screenshot of the error message
 			at the service including the address bar at the top of the web browser.
@@ -162,7 +162,7 @@ $example_errors = array(
 			<p>The service that you tried to access requires privileges that you do not have.
 			<p>Typical requirements include:<br>
 			<p><b>A <i>confirmed</i> identity, or \"high\" <i>identity assurance level</i> (AL)</b><br>
-			To confirm your identity, you need to visit the IT Service Desk and identify yourself using your national ID card or
+			To confirm your identity, you need to visit IT Service Desk and identify yourself using your national ID card or
 			passport.<br>
 
 			<p><b>Affiliation</b><br>
@@ -174,7 +174,7 @@ $example_errors = array(
 			Entitlements are specific privileges at specific services. If you are missing entitlements that you think you
 			should have (e.g. you should be able to access this service), please contact IT Service Desk to have this sorted out.
 
-			<p>If you think you should have access, please contact IT Service Desk at
+			<p>If you think you should have access, please contact IT Service Desk of Blue Star University at
 			<a href=\"$baseurl_idp_root/support\">$baseurl_idp_root/support</a> and include the name of the service you tried to
 			access, any privileges that were noted as missing and, if possible, a screenshot of the error message
 			at the service including the address bar at the top of the web browser.
@@ -251,7 +251,7 @@ $example_errors = array(
 			",
 		'GENERIC_IDP_ERROR_BODY' => "
 			<p>An error occurred when accessing the service
-			<p>If you think you should be able to access the service, please contact IT Service Desk at
+			<p>If you think you should be able to access the service, please contact IT Service Desk of Blue Star University at
 			<a href=\"$baseurl_idp_root/support\">$baseurl_idp_root/support</a> and include the name of the service you tried to
 			access, any privileges that were noted as missing and, if possible, a screenshot of the error message
 			at the service including the address bar at the top of the web browser.
