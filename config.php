@@ -64,6 +64,7 @@ $example_errors = array(
 		'GENERIC_IDP_ERROR_BODY' => "
 			<p>The service that you tried to access did not get all required attributes for identification and/or
 			personalization.
+			<p>This may be because your organisation are missing those attributes or that your organisation is not configured to release those attributes to the service you tried to access.
 			<p>Please contact the IT Service Desk of Blue Star University at <a href=\"$baseurl_idp_root/support\">$baseurl_idp_root/support</a>
 			and include the name of the service you tried to access, any missing attributes if you know what
 			they are (the service may have informed you) and, if possible, a screenshot of the error message
