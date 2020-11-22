@@ -47,7 +47,7 @@ foreach ($example_errors as $code => $definition) {
 <head>
 <title><?= trim($example_errors[$code]['GENERIC_IDP_ERROR_HEADER']) ?></title>
 <body>
-<h1><?= trim($example_errors[$code]['GENERIC_IDP_ERROR_HEADER']) ?></h2>
+<h1><?= trim($example_errors[$code]['GENERIC_IDP_ERROR_HEADER']) ?></h1>
 <?= trim(preg_replace('/^[ \t]*/m', '', $example_errors[$code]['GENERIC_IDP_ERROR_BODY'])) ?></a>
 </body>
 </html>
