@@ -123,9 +123,9 @@ $example_errors = array(
 			",
 		'GENERIC_IDP_ERROR_BODY' => "
 			<p>The service you tried to access failed during the authentication stage
-			<p>This may be because it requires additional steps which did not occur during login (such as using a second
-			factor).
-			<p>Please try again. If you cannot resolve the issue yourself, please contact IT Service Desk of Blue Star University at
+			<p>This may be because it requires additional steps which did not occur during login (such as using a second 
+			factor). Please try again.
+			<p>If you cannot resolve the issue yourself, please contact IT Service Desk of Blue Star University at
 			<a href=\"$baseurl_idp_root/support\">$baseurl_idp_root/support</a> and include the name of the service you tried to
 			access, any error information given by the service and, if possible, a screenshot of the error message
 			at the service including the address bar at the top of the web browser.
